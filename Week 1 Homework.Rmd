@@ -1,0 +1,32 @@
+---
+title: "Week 1 Homework"
+author: "Lauren Valentino"
+date: "October 20, 2015"
+output: html_document
+---
+
+Loading packages
+
+```{r}
+library(devtools)
+library(ggplot2)
+```
+
+Reading in data
+
+```{r}
+gapminder.url <- "https://raw.githubusercontent.com/socviz/soc880/master/data/gapminder.csv"
+data <- read.csv(url(gapminder.url))
+```
+
+Assignment: put lifeExp on the x-axis and gdpPercap on the y-axis. Plot pop on the x-axis and gdpPercap on the y-axis. Plot year on the x-axis and any continuous variable on the y-axis.
+
+```{r}
+hw1 <- ggplot(data, aes(x = lifeExp, y =gdpPercap))
+hw1 + geom_point() + ggtitle("Relationship between Life Expectancy and GDP per Capita")
+hw2 <- ggplot(data, aes(x = pop, y = gdpPercap))
+hw2 + geom_point() + ggtitle("Relationship between Population and GDP per Capita")
+hw3 <- ggplot(data, aes(x = year, y = pop))
+hw3 + geom_point() + ggtitle("Population by Year")
+```
+
